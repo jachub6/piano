@@ -34,7 +34,7 @@ io.on('connection', function(socket) {
     });
 
     socket.on("zahrat", function (data) {
-      io.socketst.emit("zahrat", data);
+      io.sockets.emit("zahrat", data);
     });
 
 });

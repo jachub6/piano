@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Zadejte své jméno</title>
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<h1>Zadejte jméno</h1>
+<input type="text" name="jmeno" id="jmeno">
+<input type="button" onclick="hrat()" value="Hrát">
+</body>
+</html>
+<script rel="script/javascrip">
+    var socket = io();
+    function hrat() {
+       var jmeno = document.getElementById("jmeno").value;
+       socket.emit("jmeno", jmeno);
+    }
+    socket.on("uspesne", function(){
+
+        window.location.href = "piano.html";
+
+    });
+
+</script>

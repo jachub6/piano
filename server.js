@@ -27,6 +27,9 @@ server.listen(8080, function() {
 var users = {jmeno:"anonym"};
 var jmena=[];
 io.on('connection', function(socket) {
+
+    socket.broadcast.emit("novy");
+
     socket.on("jmeno", function(data){
         jmena.push(data);
         users.jmeno=jmena;
@@ -34,7 +37,7 @@ io.on('connection', function(socket) {
     });
 
     socket.on("zahrat", function (data) {
-      socket.broadcast.emit("zahrat", data);
+        socket.broadcast.emit("zahrat", data);
     });
 
 });

@@ -2,10 +2,16 @@ var socket = io();
 
 var keyboard = new QwertyHancock({
     id: 'keyboard',
-    width: 600,
-    height: 150,
+    width: 800,
+    height: 300,
     octaves: 2,
     startNote: 'C5',
+});
+
+socket.on("novy", function(){
+
+    console.log("nove pripojeni");
+
 });
 
 var context = new AudioContext(),
@@ -81,6 +87,38 @@ function playSound() {
 
 socket.on("zahrat", function(data){
     start(""+data+"");
+    console.log("prichozi"+data);
 });
+
+
+
+function loadSound(url, sourceName) {
+    // Load buffer asynchronously
+    var request = new XMLHttpRequest();
+    request.open("GET", url, true);
+    request.responseType = "arraybuffer";
+
+    request.onload = function() {
+        // Asynchronously decode the audio file data
+        context.decodeAudioData(
+            request.response,
+            function(buffer) {
+                if (!buffer) {
+                    console.log('error decoding file data: ' + url);
+                    return;
+                }
+                window[sourceName] = buffer;
+            }
+        );
+    }
+
+    request.onerror = function() {
+        console.log('error loading file data: ' + url);
+    }
+
+    request.send();
+}
+
+
 
 //var C5, CS5, D5, DS5;

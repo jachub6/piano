@@ -8,15 +8,35 @@
     <script src="/node_modules/howler/dist/howler.js"></script>
     <style>
         ul{display: block; margin: auto;}
+        body{
+            background-color: #232323;
+        }
+        #uzivatele{
 
+            text-align: center;
+            color: white;
+            font-size: 75px;
+
+        }
+        .xd{
+            overflow: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-right: -50%;
+            transform: translate(-50%, -50%);
+
+        }
     </style>
 </head>
 <body>
-<div class="container">
-    <h1></h1>
+<div class="xd">
     <div id="keyboard"></div>
-</div>
 
+<div id="uzivatele">
+
+</div>
+</div>
 <script src="static/qwerty-hancock.min.js"></script>
 <script src="static/client.js"></script>
 </body>

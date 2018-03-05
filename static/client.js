@@ -6,28 +6,33 @@ var keyboard = new QwertyHancock({
     height: 300,
     octaves: 2,
     startNote: 'C5',
-});
-/*
-var C5 = new Howl({
-    src: ['noty/C1.mp3']
-});
-var D5 = new Howl({
-    src: ['noty/D1.mp3']
-});
-var E5 = new Howl({
-    src: ['noty/E1.mp3']
-});*/
-var F5 = new Howl({
-    src: ['noty/F1.mp3']
+    activeColour: '#3a3a3a'
 });
 
-socket.on("novy", function(){
-    console.log("nove pripojeni");
+socket.on("uspesne", function(data){
+    text="";
+    for(var i=0;i<data;i++)
+    {
+        text += " ❤ ";
+
+    }
+    document.getElementById("uzivatele").innerHTML=text;
+});
+
+socket.on("zahraj", function(data){
+    console.log("prijem: "+ data);
+    var nota = new Howl({
+        src: ['noty/'+data+'.mp3']
+    });
+    nota.play();
+
 });
 
 keyboard.keyDown = function (note, frequency) {
 
     res =  note.replace("#", "S");
+    socket.emit("zahraj", res);
+    console.log("odchozi: "+ res);
     var nota = new Howl({
         src: ['noty/'+res+'.mp3']
     });

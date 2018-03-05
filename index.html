@@ -2,12 +2,55 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Zadejte své jméno</title>
+    <title>Zadejte jméno</title>
     <script src="/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Roboto');
+        h1{
+            text-align: center;
+            color: black;
+            font-family: 'Roboto', sans-serif;
+        }
+        body{
+            background-color: #232323;
+        }
+        #div{
+            width:400px;
+            height:400px;
+            padding: 50px;
+            background-color: white;
+            text-align: center;
+            overflow: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-right: -50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 10px 10px lightgrey;
+        }
+        #form, #loading{
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-right: -50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
 </head>
-<h1>Zadejte jméno</h1>
-<input type="text" name="jmeno" id="jmeno">
-<input type="button" onclick="hrat()" value="Hrát">
+<body>
+<div id="div">
+    <div id="form">
+    <h1>Zadejte jméno</h1>
+    <input type="text" name="jmeno" id="jmeno">
+    <input type="button" onclick="hrat()" value="Hrát">
+    <span id="error"></span>
+    </div>
+    <div id="loading" style="display: none;">
+        <i class="fa fa-gear fa-spin" style="font-size:100px"></i>
+    </div>
+</div>
 </body>
 </html>
 <script rel="script/javascrip">
@@ -15,6 +58,8 @@
     function hrat() {
        var jmeno = document.getElementById("jmeno").value;
        socket.emit("jmeno", jmeno);
+       document.getElementById("form").style.display = "none";
+       document.getElementById("loading").style.display = "block";
     }
     socket.on("uspesne", function(){
 

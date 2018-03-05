@@ -8,6 +8,7 @@ var server = http.Server(app);
 var io = socketIO(server);
 app.set('port', 8080);
 app.use('/static', express.static(__dirname + '/static'));
+app.use('/node_modules/howler/dist', express.static(__dirname + '/node_modules/howler/dist'));
 app.use('/style', express.static(__dirname + '/style'));
 app.use('/img', express.static(__dirname + '/img'));
 app.use('/noty', express.static(__dirname + '/noty'));

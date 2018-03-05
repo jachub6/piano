@@ -1,0 +1,131 @@
+.pushed_key {
+    border: 0.1em solid #000;
+}
+.piano {
+    width: 31em;
+    height: 14em;
+    margin-top: 1%;
+    margin-left: 40%;
+    background-color: #a5492a;
+    border-top-left-radius: 3% 7%;
+    border-top-right-radius: 3% 7%;
+    border-bottom-left-radius: 3% 7%;
+    border-bottom-right-radius: 3% 7%;
+    border-right: 0.1875em solid #482812;
+    border-bottom: 0.375em solid #482812;
+    border-left: 0.1875em solid #482812;
+}
+.desk {
+    width: 27.85em;
+    height: 12.6em;
+    position: relative;
+    top: 2%;
+    left: 5%;
+    background-color: #682e1a;
+    border-top-left-radius: 3% 7%;
+    border-top-right-radius: 3% 7%;
+    border-bottom-left-radius: 3% 7%;
+    border-bottom-right-radius: 3% 7%;
+    border-right: 3px solid #3f1c10;
+    border-bottom: 5px solid #3f1c10;
+    border-left: 3px solid #3f1c10;
+}
+.keyboard-white {
+    margin-top: 0.3%;
+    margin-left: 1.92%;
+    position: relative;
+    z-index: 1;
+    float: left;
+    clear: right;
+}
+.keyboard-w-inside {
+    width: 1.4em;
+    height: 11.5em;
+    background-color: #fff;
+    position: relative;
+    left: 0.2em;
+    border-radius: 5px;
+}
+.keyboard-w {
+    width: 1.8em;
+    height: 12em;
+    background-color: #eee;
+    display: inline-block;
+    margin: 0.1em 0em;
+    border-top-left-radius: 20% 4%;
+    border-top-right-radius: 20% 4%;
+    border-bottom-left-radius: 20% 4%;
+    border-bottom-right-radius: 20% 4%;
+    position: relative;
+}
+.keyboard-w:active {
+    background-color: #e3e3e3;
+}
+.keyboard-black {
+    position: absolute;
+    margin-top: 0.6%;
+    margin-left: 5%;
+    z-index: 2;
+    float: left;
+    clear: left;
+}
+.keyboard-b {
+    width: 1.8em;
+    height: 7.2em;
+    background-color: #0f0f0f;
+    display: inline-block;
+    margin-left: 0em;
+    border-top-left-radius: 20% 4%;
+    border-top-right-radius: 20% 4%;
+    border-bottom-left-radius: 20% 4%;
+    border-bottom-right-radius: 20% 4%;
+    z-index: 2;
+    float: left;
+}
+.keyboard-b:active, .keyboard-b-inside:active {
+    background-color: #000;
+}
+.keyboard-b-inside {
+    width: 1.4em;
+    height: 6.8em;
+    background-color: #232323;
+    position: relative;
+    left: 0.2em;
+    border-radius: 5px;
+}
+.key-b2 {
+    position: relative;
+    left: 0.6em;
+}
+.key-b3 {
+    position: relative;
+    left: 2.7em;
+}
+.key-b4 {
+    position: relative;
+    left: 3.21em;
+}
+.key-b5 {
+    position: relative;
+    left: 3.7em;
+}
+.key-b6 {
+    position: relative;
+    left: 5.7em;
+}
+.key-b7 {
+    position: relative;
+    left: 6.2em;
+}
+.key-b8 {
+    position: relative;
+    left: 8.3em;
+}
+.key-b9 {
+    position: relative;
+    left: 8.8em;
+}
+.key-b10 {
+    position: relative;
+    left: 9.3em;
+}

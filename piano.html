@@ -6,8 +6,9 @@
     <script src="/socket.io/socket.io.js"></script>
     <link rel="stylesheet" href="style/main.css">
     <script src="/node_modules/howler/dist/howler.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <style>
-        ul{display: block; margin: auto;}
+        @import url('https://fonts.googleapis.com/css?family=Roboto');
         body{
             background-color: #232323;
         }
@@ -27,14 +28,44 @@
             transform: translate(-50%, -50%);
 
         }
+        .spanik{
+            display:block;
+            position: absolute;
+            bottom: 5px;
+            text-align: center;
+            mix-blend-mode: difference;
+            margin:auto;
+        }
+        span{
+            text-align: center;
+            margin:auto;
+            font-family: 'Roboto', sans-serif;
+        }
+        #prepinac, img{
+            display: block;
+            width:50px;
+            height:50px;
+            float:right;
+            background-color: white;
+            color: #0f0f0f;
+            cursor: pointer;
+            mix-blend-mode: difference;
+        }
+        img:hover{
+
+
+
+        }
+
     </style>
 </head>
 <body>
+
+<div id="prepinac" onclick="popisek()"><img id="klavesnice" src="http://www.iconarchive.com/download/i87838/icons8/ios7/Computer-Hardware-Keyboard.ico"><img id="noticka" style="display:none" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Simple_Music.svg/768px-Simple_Music.svg.png"></div>
 <div class="xd">
     <div id="keyboard"></div>
 
 <div id="uzivatele">
-
 </div>
 </div>
 <script src="static/qwerty-hancock.min.js"></script>

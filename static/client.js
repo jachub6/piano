@@ -13,7 +13,7 @@ socket.on("uspesne", function(data){
     text="";
     for(var i=0;i<data;i++)
     {
-        text += " ❤ ";
+        text += " ♡ ";
 
     }
     document.getElementById("uzivatele").innerHTML=text;
@@ -53,7 +53,54 @@ keyboard.keyDown = function (note, frequency) {
 keyboard.keyUp = function (note, frequency) {
 
 };
+ var klavesnice = ["Y", "S", "X", "D", "C", "V", "G", "B", "H", "N", "J", "M", ",", "L", ".", "Ů", "-", "Q", "2", "W", "3", "E", "4", "R", "T", "6", "Z", "7", "U", "I", "9", "O", "0","P","=","Ú"];
 
+jQuery(document).ready(function(){
+    var i = 0;
+    jQuery("li").each(function () {
+      jQuery(this).html("<span class='spanik'><span class='nota'>"+jQuery(this).attr('id')+"</span><br><span style='display: none' class='klavesa'>"+klavesnice[i]+"</span></span>");
+      jQuery(this).css("color", "white");
+      console.log(jQuery(this).attr('id'));
+      i++;
+    });
+
+});
+var verze=true;
+function popisek() {
+    if(verze)
+    {
+       jQuery(".nota").each(function () {
+
+          jQuery(this).hide();
+
+       });
+        jQuery(".klavesa").each(function () {
+
+            jQuery(this).show();
+
+        });
+        jQuery("#noticka").show();
+        jQuery("#klavesnice").hide();
+        verze=false;
+    }
+    else
+    {
+        jQuery(".nota").each(function () {
+
+            jQuery(this).show();
+
+        });
+        jQuery(".klavesa").each(function () {
+
+            jQuery(this).hide();
+
+        });
+        jQuery("#noticka").hide();
+        jQuery("#klavesnice").show();
+        verze=true;
+    }
+
+}
 
 
 

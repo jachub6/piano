@@ -17,8 +17,8 @@ app.get('/', function(request, response) {
 });
 
 
-server.listen(443, function() {
-    console.log('Starting server on port 443');
+server.listen(80, function() {
+    console.log('Starting server on port 80');
 });
 var pocet=0;
 io.on('connection', function(socket) {

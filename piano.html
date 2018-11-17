@@ -2,15 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Test</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=0">
+    <title>:)</title>
     <script src="/socket.io/socket.io.js"></script>
     <link rel="stylesheet" href="style/main.css">
+    <link rel="manifest" href="static/manifest.json">
     <script src="/node_modules/howler/dist/howler.js"></script>
+    <script src="/node_modules/tone/build/Tone.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css?family=Roboto');
         body{
             background-color: #232323;
+        }
+        html, body {
+            width:  100%;
+            height: 100%;
+            margin: 0px;
         }
         #uzivatele{
 
@@ -41,7 +49,7 @@
             margin:auto;
             font-family: 'Roboto', sans-serif;
         }
-        #prepinac, img{
+        #prepinac, #prepinac img{
             display: block;
             width:50px;
             height:50px;
@@ -51,24 +59,89 @@
             cursor: pointer;
             mix-blend-mode: difference;
         }
-        img:hover{
-
-
+        #nastaveni, #nastaveni img{
+            display: block;
+            width:50px;
+            height:50px;
+            float:left;
+            background-color: white;
+            color: #0f0f0f;
+            cursor: pointer;
+            mix-blend-mode: difference;
+        }
+        .bloky{
+            min-width: 80px;
+            padding:10px;
+            margin-left:10px;
+            float:left;
+            background-color: black;
+        }
+        label{
+            font-family: 'Roboto', sans-serif;
+            color:white;
+        }
+        .ovladaci {
+            display:block;
+        }
+        canvas{
+            position: fixed;
+            top:0;
+            right: 10px;
+            z-index: -1;
 
         }
+        .nastaveni{
 
+           display:none;
+
+        }
+        #Keyboard{
+
+            width:100px;
+
+        }
     </style>
 </head>
 <body>
 
 <div id="prepinac" onclick="popisek()"><img id="klavesnice" src="http://www.iconarchive.com/download/i87838/icons8/ios7/Computer-Hardware-Keyboard.ico"><img id="noticka" style="display:none" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Simple_Music.svg/768px-Simple_Music.svg.png"></div>
+<div id="nastaveni" onclick="nastaveni()"><img src="https://png.pngtree.com/svg/20151218/cog_543752.png"></div>
 <div class="xd">
-    <div id="keyboard"></div>
+    <div id="Keyboard"></div>
 
 <div id="uzivatele">
 </div>
+
+<div class="nastaveni">
+    <div class="bloky">
+        <label>ATTACK<input type="number" class="ovladaci" name="attack" min="0" max="10" step="0.01"></label>
+        <label>DECAY<input type="number" class="ovladaci" name="decay" min="0" max="10" step="0.01"></label>
+        <label>SUSTAIN<input type="number" class="ovladaci" name="sustain" min="0" max="10" step="0.01"></label>
+        <label>RELEASE<input type="number" class="ovladaci" name="release" min="0" max="10" step="0.01"></label>
+    </div>
+    <div class="bloky">
+        <label>WAVEFORM
+            <select name="wave" class="ovladaci">
+                <option value="sine">SINE</option>
+                <option value="square">SQUARE</option>
+                <option value="triangle">TRIANGLE</option>
+                <option value="sawtooth">SAWTOOTH</option>
+            </select>
+        </label>
+        <label>DETUNE
+           <input type="number" class="ovladaci" name="detune" min="-3200" max="3200" step="100">
+        </label>
+    </div>
+</div>
+</div>
+<div id="Content" class="FullScreen">
+
 </div>
 <script src="static/qwerty-hancock.min.js"></script>
+<script src="static/Interface.js"></script>
+<script src="static/Keyboard.js"></script>
 <script src="static/client.js"></script>
+
+
 </body>
 </html>

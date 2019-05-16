@@ -6,7 +6,7 @@ var socketIO = require('socket.io');
 var app = express();
 var server = http.Server(app);
 var io = socketIO(server);
-app.set('port', 50000);
+app.set('port', 8080);
 app.use('/static', express.static(__dirname + '/static'));
 app.use('/node_modules/howler/dist', express.static(__dirname + '/node_modules/howler/dist'));
 app.use('/node_modules/tone/build', express.static(__dirname + '/node_modules/tone/build'));
@@ -18,8 +18,8 @@ app.get('/', function(request, response) {
 });
 
 
-server.listen(50000, function() {
-    console.log('Starting server on port 50000');
+server.listen(8080, function() {
+    console.log('Starting server on port 8080');
 });
 var pocet=0;
 var nastaveniSynthu = {
